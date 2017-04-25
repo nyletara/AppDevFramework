@@ -58,4 +58,4 @@ def get_tweet_sentiments(tweets):
     return sentiment_list
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5050, host='0.0.0.0')

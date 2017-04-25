@@ -17,13 +17,20 @@ accessSecret=config.get('API Keys', 'accessSecret')
 
 REQUEST_LIMIT = 420
 
-def get_tweets(twitter_handle):
+app = Flask(__name__)
+app.config.update(
+    DEBUG=True,
+    SECRET_KEY='EVERTWEET'
+)
+
+@app.route('/getTwitterData/<username>', methods=['GET', 'POST'])
+def get_tweets(username):
 
     auth = tweepy.AppAuthHandler(consumerKey, consumerSecret)
     # auth.set_access_token(accessToken, accessSecret)
     api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-    timeline = api.user_timeline(screen_name=twitter_handle, count=3200)
+    timeline = api.user_timeline(screen_name=username, count=3200)
     user_tweets = []
 
     for current_tweet in timeline:
@@ -37,8 +44,11 @@ def get_tweets(twitter_handle):
 
     return user_tweets
 
-# For testing purposes only
 if __name__ == '__main__':
-    twitter_handle = 'tomandmartys'
-    all_tweets = get_tweets(twitter_handle)
-    print len(all_tweets)
+    app.run(port=6050, host='0.0.0.0')
+
+# For testing purposes only
+# if __name__ == '__main__':
+#     twitter_handle = 'tomandmartys'
+#     all_tweets = get_tweets(twitter_handle)
+#     print len(all_tweets)

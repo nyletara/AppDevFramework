@@ -20,4 +20,4 @@ def get_sentiment_list(username):
     return json.dumps(get_tweet_sentiments(tweets))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(port=8080, host='0.0.0.0')
