@@ -1,3 +1,4 @@
+from flask import Flask
 import json
 import datetime
 import ConfigParser
@@ -16,12 +17,19 @@ nlu_analyzer = NaturalLanguageUnderstandingV1(
     username=watson_username,
     password=watson_password)
 
+app = Flask(__name__)
+app.config.update(
+    DEBUG=True,
+    SECRET_KEY='EVERTWEET'
+)
+
 def get_sentiment(input_text):
 
     response = nlu_analyzer.analyze(text=input_text,
                                     features=[features.Emotion()])
     return response['emotion']['document']['emotion']
 
+@app.route('/getTweetSentiments/<tweets>', methods=['GET', 'POST'])
 def get_tweet_sentiments(tweets):
 
     sentiment_list = {'angry': [], 'joy': [], 'sadness': [], 'fear': [], 'disgust': []}
@@ -49,4 +57,5 @@ def get_tweet_sentiments(tweets):
 
     return sentiment_list
 
-
+if __name__ == '__main__':
+    app.run()

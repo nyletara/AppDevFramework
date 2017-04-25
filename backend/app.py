@@ -11,13 +11,11 @@ app.config.update(
 
 @app.route('/getTwitterData/<username>', methods=['GET', 'POST'])
 def getTwitterData(username):
-
     sentimentData = getSentiments(username);
     return reformatForUI(sentimentData)
 
 @app.route('/getSentimentList/<username>', methods=['GET', 'POST'])
 def get_sentiment_list(username):
-
     tweets = get_tweets(username)
     return json.dumps(get_tweet_sentiments(tweets))
 
