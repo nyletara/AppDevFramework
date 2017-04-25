@@ -1,3 +1,4 @@
+from flask import Flask
 import tweepy
 import json
 import time
@@ -15,11 +16,6 @@ accessToken=config.get('API Keys', 'accessToken')
 accessSecret=config.get('API Keys', 'accessSecret')
 
 REQUEST_LIMIT = 420
-
-def sentiment(tweet):
-
-    return tweet
-    pass
 
 def get_tweets(twitter_handle):
 
