@@ -13,12 +13,19 @@ The idea of our application stems from research that associates social media con
 pip install -r requirements.txt
 ```
 
-2. In three different windows, run app.py in the orchestrator folder, sentiment_analyzzer.py in the sentiments folder, and tweet_listener.py in the tweets folder.
+2. In three different windows, run app.py in the orchestrator folder, sentiment_analyzer.py in the sentiments folder, and tweet_listener.py in the tweets folder.
 
 ```
 cd application/orchestrator
 python app.py
-...
+```
+```
+cd application/sentiments
+python sentiment_analyzer.py
+```
+```
+cd application/tweets
+python tweet_listener.py
 ```
 
 3. Open given link in local browser
