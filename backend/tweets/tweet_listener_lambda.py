@@ -14,19 +14,22 @@ consumerSecret=config.get('API Keys', 'consumerSecret')
 accessToken=config.get('API Keys', 'accessToken')
 accessSecret=config.get('API Keys', 'accessSecret')
 
-REQUEST_LIMIT = 420
+def tweet_lambda_handler(event, context):
+    print('This is the event:')
+    print(event)
+    print('This is the context:')
+    print(context)
 
-app = Flask(__name__)
-app.config.update(
-    DEBUG=True,
-    SECRET_KEY='EVERTWEET'
-)
+    username = event['username']
+    print username
+    
+    user_tweets = get_tweets(username)
 
-@app.route('/getTwitterData/<username>', methods=['GET', 'POST'])
+    return user_tweets
+
 def get_tweets(username):
 
     auth = tweepy.AppAuthHandler(consumerKey, consumerSecret)
-    # auth.set_access_token(accessToken, accessSecret)
     api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
     timeline = api.user_timeline(screen_name=username, count=3200)
@@ -42,12 +45,3 @@ def get_tweets(username):
             user_tweets.append(tweet)
 
     return user_tweets
-
-if __name__ == '__main__':
-    app.run(port=6050, host='0.0.0.0')
-
-# For testing purposes only
-# if __name__ == '__main__':
-#     twitter_handle = 'tomandmartys'
-#     all_tweets = get_tweets(twitter_handle)
-#     print len(all_tweets)
