@@ -5,6 +5,7 @@ import ConfigParser
 import tweepy
 from tweepy.streaming import StreamListener
 import os
+from datetime import datetime
 
 config_file_path = os.environ['LAMBDA_TASK_ROOT'] + '/configurations.txt'
 
@@ -37,7 +38,14 @@ def get_tweets(username):
             tweet['tweetId'] = current_tweet.id
             tweet['message'] = current_tweet.text
             tweet['author'] = current_tweet.user.name
-            tweet['timestamp'] = current_tweet.created_at
+            tweet['timestamp'] = str(current_tweet.created_at)
             user_tweets.append(tweet)
 
-    return user_tweets
+    return json.dumps(user_tweets, default=json_serial)
+
+def json_serial(obj):
+    """JSON serializer for objects not serializable by default json code"""
+    if isinstance(obj, datetime):
+        serial = obj.isoformat()
+        return serial
+    raise TypeError ("Type not serializable")
