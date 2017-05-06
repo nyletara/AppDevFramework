@@ -1,4 +1,3 @@
-from flask import Flask
 import tweepy
 import json
 import time
@@ -18,14 +17,8 @@ accessToken=config.get('API Keys', 'accessToken')
 accessSecret=config.get('API Keys', 'accessSecret')
 
 def tweet_lambda_handler(event, context):
-    print('This is the event:')
-    print(event)
-    print('This is the context:')
-    print(context)
 
     username = event['username']
-    print username
-
     user_tweets = get_tweets(username)
 
     return user_tweets
