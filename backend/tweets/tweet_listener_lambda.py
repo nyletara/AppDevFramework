@@ -5,9 +5,12 @@ import time
 import ConfigParser
 import tweepy
 from tweepy.streaming import StreamListener
+import os
+
+config_file_path = os.environ['LAMBDA_TASK_ROOT'] + '/configurations.txt'
 
 config = ConfigParser.ConfigParser()
-config.readfp(open(r'./configurations.txt'))
+config.readfp(open(config_file_path))
 
 consumerKey=config.get('API Keys', 'consumerKey')
 consumerSecret=config.get('API Keys', 'consumerSecret')
@@ -22,7 +25,7 @@ def tweet_lambda_handler(event, context):
 
     username = event['username']
     print username
-    
+
     user_tweets = get_tweets(username)
 
     return user_tweets
