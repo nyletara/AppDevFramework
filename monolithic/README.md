@@ -19,13 +19,13 @@
 
 The configurations.txt file contains all keys that should not be pushed to GitHub. These keys include API keys, secret keys, or any extra information.
 
-The format of the file should be:
+The format of the configurations.txt file should be:
 ```text
 [API Keys]
 some_api_key=abcDEFghiJKL
 ```
 
-To access these keys, import ConfigParser and pull the values:
+To access these keys in a python file, import ConfigParser and pull the values:
 ```python
 import ConfigParser
 config = ConfigParser.ConfigParser()
