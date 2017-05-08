@@ -11,8 +11,8 @@ import ConfigParser
 config = ConfigParser.ConfigParser()
 config.readfp(open(r'./configurations.txt'))
 
-secret_key = config.get('KEYS', 'secret_key')
-
+secret_key = config.get('APP CONFIG', 'secret_key')
+app_port = int(config.get('APP CONFIG', 'port'))
 
 '''
 * create an instance of the class
@@ -81,6 +81,6 @@ def feature2():
 * (opposed to being imported into another module)
 '''
 if __name__ == '__main__':
-    app.run()
+    app.run(port=app_port)
 
 
