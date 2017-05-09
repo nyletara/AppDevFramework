@@ -16,7 +16,7 @@ This section still uses Flask Application Servers that allow users to host appli
     ├── service_three          		# Folder for a designated service
     │   ├── application.py              # Flask application for Service Three
     ├── configurations.txt          # Configuration file with keys (not tracked by git)
-    └── .gitignore            		# tells Git which files to ignore
+    └── .gitignore                  # tells Git which files to ignore
     
    Note: AWS Elastic Beanstalk requires the file name to be called "application.py" internally
 
