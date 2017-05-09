@@ -7,22 +7,26 @@ This section still uses Flask Application Servers that allow users to host appli
 ## Project Structure Convention
 
     .
-    ├── orchestrator          			# Orchestrator folder to connect with services
-    │   ├── application.py          # Flask application orchestrator 
-    ├── service_one          				# Folder for a designated service
-    │   ├── application.py          # Flask application for Service One
-    ├── service_two          				# Folder for a designated service
-    │   ├── application.py          # Flask application for Service Two
-    ├── service_three          			# Folder for a designated service
-    │   ├── application.py          # Flask application for Service Three
+    ├── orchestrator                # Orchestrator folder to connect with services
+    │   ├── application.py              # Flask application for orchestrator 
+    ├── service_one                 # Folder for a designated service one
+    │   ├── application.py              # Flask application for Service One
+    ├── service_two                 # Folder for a designated service two
+    │   ├── application.py              # Flask application for Service Two
+    ├── service_three               # Folder for a designated service three
+    │   ├── application.py              # Flask application for Service Three
     ├── configurations.txt          # Configuration file with keys (not tracked by git)
-    └── .gitignore            			# tells Git which files to ignore
+    └── .gitignore                  # tells Git which files to ignore
     
    Note: AWS Elastic Beanstalk requires the file name to be called "application.py" internally
 
 #### The Orchestrator
 
 The Orchestrator is the first component of this architecture but will be the last to be completed. The orchestrator facilitates communication between the User Interface and all the different services that make up the application. Within orchestrator/application.py, there are different GET and POST requests designed to post and retrieve data from the services. Users have the option to update these and extrapolate to include more services
+
+#### The Services
+
+Each Service should be a separate unique uncoupled feature of the application which the orchestrator can communicate with. The orchestrator communicates with the service via the Flask route and the service itself should return the proper requested data by running the service functions (taken from the monolithic architecture).
 
 
 ## File: configurations.txt
