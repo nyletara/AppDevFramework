@@ -1,25 +1,17 @@
 import json
-from flask import Flask, request
-# from tweet_listener import get_tweets
-# from sentiment_analyzer import get_tweet_sentiments
+import requests
 
-app = Flask(__name__)
-app.config.update(
-    DEBUG=True,
-    SECRET_KEY='EVERTWEET'
-)
+def tweet_lambda_handler(event, context):
+	username = event['username']
+	user_tweets = get_sentiment_list(username)
+	return user_tweets
 
-@app.route('/getTwitterData/<username>', methods=['GET', 'POST'])
-def getTwitterData(username):
-	tweets = request.post('<ENDPOINT_URL:PORT>', json=username)
-	return json.dumps(tweets)
-
-@app.route('/getSentimentList/<username>', methods=['GET', 'POST'])
 def get_sentiment_list(username):
-    # tweets = get_tweets(username)
-    tweets = request.post('<ENDPOINT_URL:PORT>', json=username)
-    sentiments = request.post('<ENDPOINT_URL:PORT>', json=json.loads(tweets))
-    return json.dumps(sentiments)
+	tweets = requests.get('https://20s3rkteqd.execute-api.us-west-2.amazonaws.com/prod/gettweetdata/' + str(username))	
+	sentiments = requests.post('https://ad4idjkc5f.execute-api.us-west-2.amazonaws.com/prod/get-sentiment', json=json.loads(json.loads(tweets.text)))	
+	return json.dumps(sentiments.text)
 
-if __name__ == '__main__':
-    app.run(port=8080, host='0.0.0.0')
+# if __name__ == '__main__':
+# 	username = 'ishantlguru'
+# 	tweets = get_sentiment_list(username)
+# 	print tweets
