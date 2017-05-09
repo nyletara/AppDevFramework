@@ -7,13 +7,13 @@ This section still uses Flask Application Servers that allow users to host appli
 ## Project Structure Convention
 
     .
-    ├── orchestrator          		# Orchestrator folder to connect with services
+    ├── orchestrator                # Orchestrator folder to connect with services
     │   ├── application.py              # Flask application for orchestrator 
-    ├── service_one          		# Folder for a designated service
+    ├── service_one                 # Folder for a designated service one
     │   ├── application.py              # Flask application for Service One
-    ├── service_two          		# Folder for a designated service
+    ├── service_two                 # Folder for a designated service two
     │   ├── application.py              # Flask application for Service Two
-    ├── service_three          		# Folder for a designated service
+    ├── service_three               # Folder for a designated service three
     │   ├── application.py              # Flask application for Service Three
     ├── configurations.txt          # Configuration file with keys (not tracked by git)
     └── .gitignore                  # tells Git which files to ignore
