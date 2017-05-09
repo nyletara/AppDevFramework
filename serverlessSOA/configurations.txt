@@ -8,16 +8,6 @@
 
 <Remove this text from the actual configurations.txt file>
 
-[HOST Values]
-OrchestratorHost=0.0.0.0
-ServiceOneHost=0.0.0.0
-ServiceTwoHost=0.0.0.0
-ServiceThreeHost=0.0.0.0
-
-[HOST Values]
-OrchestratorPort=8080
-ServiceOnePort=7070
-ServiceTwoHPort=9090
-ServiceThreePort=8060
+<As you may have noticed, each lambda function requires its own configurations.txt file>
 
 [API Keys]
