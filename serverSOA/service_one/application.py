@@ -19,8 +19,8 @@ config.readfp(open(config_file_path))
 * since we are running multiple instances, it is easiest to pass in ports through the config file
 '''
 
-ORCHESTRATOR_PORT=config.get('PORT Values', 'OrchestratorPort')
-HOST=config.get('HOST Values', 'CurrentHost')
+PORT=config.get('PORT Values', 'ServiceOnePort')
+HOST=config.get('HOST Values', 'ServiceOneHost')
 
 '''
 * create an instance of the class
@@ -45,15 +45,13 @@ application.config.update(
 '''
 * app.route binds a function to a URL
 * this route is the main route that is called by the user
-* parameters can be passed in the form of /URL/param1/param2
-* since this is the orchestrator GET and POST requests are made to communicate with the other services
-* this ensures that no services are coupled and we are following an SOA
+* since we are now using a service, it is important to understand that only one feature is handled by this server
+* hence, only one task is to be done by this function
 '''
 
 @application.route('/URL/<arg_one>/<arg_two>', methods=['GET', 'POST'])
-def orchestrator(arg_one, arg_two):
-    data_from_service_one = requests.get('<SERVICE_URL>')
-    data_from_service_two = requests.post('<SERVICE_URL>', json={"<data_to_send>"})
+def feature_one(arg_one, arg_two):
+    # TODO Implementation for the first feature goes here
     return data_to_send
 
 '''
@@ -61,4 +59,4 @@ def orchestrator(arg_one, arg_two):
 '''
 
 if __name__ == '__main__':
-    app.run(port=ORCHESTRATOR_PORT, host=HOST)
+    app.run(port=PORT, host=HOST)
