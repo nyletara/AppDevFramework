@@ -1,0 +1,9 @@
+/example/EverTweet/configurations.txt
+/example/EverTweet/*.pyc
+/example/EverTweet/temp-python/
+/example/EverTweet-Lambda/configurations.txt
+/example/EverTweet-Lambda/*.pyc
+/example/EverTweet-Lambda/temp-python/
+/example/EverTweet-SOA/configurations.txt
+/example/EverTweet-SOA/*.pyc
+/example/EverTweet-SOA/temp-python/
