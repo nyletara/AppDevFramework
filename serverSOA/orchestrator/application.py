@@ -20,7 +20,7 @@ config.readfp(open(config_file_path))
 '''
 
 ORCHESTRATOR_PORT=config.get('PORT Values', 'OrchestratorPort')
-HOST=config.get('HOST Values', 'CurrentHost')
+HOST=config.get('HOST Values', 'OrchestratorHost')
 
 '''
 * create an instance of the class
