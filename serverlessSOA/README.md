@@ -4,20 +4,20 @@ This section turns the server based service oriented  application that was previ
 
 ## Project Structure Convention
 
-.
-├── orchestrator                        # subfolder for orchestrator
-│   ├── configurations.txt              # configurations.txt file
-│   ├── orchestrator_lambda.py          # orchestrator file containing lambda functions
-├── service_one                         # subfolder for service one
-│   ├── configurations.txt              # configurations.txt file
-│   ├── service_one_lambda.py           # service one lambda functions
-├── service_two                         # subfolder for service two
-│   ├── configurations.txt              # configurations.txt file
-│   ├── service_two_lambda.py           # service two lambda functions
-├── service_three                       # subfolder for service three
-│   ├── configurations.txt              # configurations.txt file
-│   ├── service_three_lambda.py         # service three lambda functions
-└── .gitignore                          # tells Git which files to ignore
+    .
+    ├── orchestrator                        # subfolder for orchestrator
+    │   ├── configurations.txt              # configurations.txt file
+    │   ├── orchestrator_lambda.py          # orchestrator file 
+    ├── service_one                         # subfolder for service one
+    │   ├── configurations.txt              # configurations.txt file
+    │   ├── service_one_lambda.py           # service one lambda functions
+    ├── service_two                         # subfolder for service two
+    │   ├── configurations.txt              # configurations.txt file
+    │   ├── service_two_lambda.py           # service two lambda functions
+    ├── service_three                       # subfolder for service three
+    │   ├── configurations.txt              # configurations.txt file
+    │   ├── service_three_lambda.py         # service three lambda functions
+    └── .gitignore                          # tells Git which files to ignore
 
 
 ## File: configurations.txt
