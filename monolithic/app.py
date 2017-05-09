@@ -5,8 +5,8 @@ import ConfigParser
 
 
 '''
-* create instance of configparser
-* reads values from configuration file
+* Create instance of configparser
+* Reads values from configuration file
 '''
 config = ConfigParser.ConfigParser()
 config.readfp(open(r'./configurations.txt'))
@@ -15,8 +15,8 @@ secret_key = config.get('APP CONFIG', 'secret_key')
 app_port = int(config.get('APP CONFIG', 'port'))
 
 '''
-* create an instance of the class
-* argument __name__ allows the name of the instance
+* Create an instance of the class
+* Argument __name__ allows the name of the instance
   to change depending on if it's started as an application
   or imported as a module
 '''
@@ -24,8 +24,8 @@ app = Flask(__name__)
 
 
 '''
-* modify the app's configuration values
-* uses dict.update() mothod for multiple values
+* Modify the app's configuration values
+* Uses dict.update() mothod for multiple values
 '''
 app.config.update(
     DEBUG=True,
@@ -35,7 +35,7 @@ app.config.update(
 
 '''
 * app.route binds a function to a URL
-* this route renders the HTML page index.html
+* This route renders the HTML page index.html
 '''
 @app.route('/', methods=['GET'])
 def index():
@@ -43,7 +43,7 @@ def index():
 
 
 '''
-* this route returns plain text
+* This route returns plain text
 '''
 @app.route('/text', methods=['GET'])
 def getText():
@@ -52,7 +52,7 @@ def getText():
 
 '''
 * <variable_name> denotes a variable value in the URL
-* returns the variable value
+* Returns the variable value
 '''
 @app.route('/getVariable/<variable_name>/', methods=['GET','POST'])
 def getVariable():
@@ -60,7 +60,7 @@ def getVariable():
 
 
 '''
-* feature 1
+* Feature 1
 '''
 @app.route('/feature1/', methods=['GET','POST'])
 def feature1():
@@ -68,7 +68,7 @@ def feature1():
 
 
 '''
-* feature 2
+* Feature 2
 '''
 @app.route('/feature2/', methods=['GET','POST'])
 def feature2():
@@ -76,7 +76,7 @@ def feature2():
 
 
 '''
-* runs the statements if the __name__ is set to the string '__main__'
+* Runs the statements if the __name__ is set to the string '__main__'
 * AKA if the script is being run directly
 * (opposed to being imported into another module)
 '''
