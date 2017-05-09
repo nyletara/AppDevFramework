@@ -4,6 +4,6 @@ This section turns the monolithic application that was previously built into a s
 
 This section still uses Flask Application Servers that allow users to host applications locally or on cloud servers, hence, maximizes as much code-reuse as possible. 
 
-###### The Orchestrator
+#### The Orchestrator
 
 The Orchestrator is the first component of this architecture but will be the last to be completed. The orchestrator facilitates communication between the User Interface as well as among all the different services that make up the application.
