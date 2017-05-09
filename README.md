@@ -4,9 +4,9 @@
 
 ## Framework Details
 Each architecture structure is separated into its own subfolder and is set up to run onc the user fills in the dummy functions. The application frameworks are:
-* Written in Python
+* Written in <b>Python</b>
 * Built using the <b>Python Flask</b> web framework
-* Set up with files for continuous integration with Travis CI
+* Set up with files for continuous integration with <b>Travis CI</b>
 
 ## Why Python and Flask?
 Python itself is a high level language that many developers can easily pick up and get started with, as well as, having very thorough documentation and an active community. The Flask framework was chosen to accompany Python's ease of use because of its great tutorials, documentation, easy to understand framework, and quick setup/development time.
