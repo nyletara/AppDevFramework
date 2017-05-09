@@ -19,17 +19,18 @@ accessSecret=config.get('API Keys', 'accessSecret')
 
 def tweet_lambda_handler(event, context):
 
-    username = event['username']
-    user_tweets = get_tweets(username)
+    username = event['tweetuser']
+    number_of_tweets = event['tweetnum']
+    user_tweets = get_tweets(username, number_of_tweets)
 
     return user_tweets
 
-def get_tweets(username):
+def get_tweets(username, number_of_tweets):
 
     auth = tweepy.AppAuthHandler(consumerKey, consumerSecret)
     api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-    timeline = api.user_timeline(screen_name=username, count=3200)
+    timeline = api.user_timeline(screen_name=username, count=number_of_tweets)
     user_tweets = []
 
     for current_tweet in timeline:
