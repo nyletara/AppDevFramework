@@ -1,0 +1,13 @@
+<This is the configurations file - any hard coded parameter such as an API Key or a Port or host, etc. goes here>
+
+<If this file contains required API Keys DO NOT commit it to the repository. Instead, just add it to the .gitignore for safety>
+
+<ConfigParser uses this file to determine which keys go where, based on the "section" it lies under. The syntax for how sections are split can be seen below>
+
+<To use config parser to parse the following keys, you must pass in the Section and Key as shown in the template code>
+
+<Remove this text from the actual configurations.txt file>
+
+<As you may have noticed, each lambda function requires its own configurations.txt file>
+
+[API Keys]
