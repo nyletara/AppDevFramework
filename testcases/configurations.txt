@@ -1,0 +1,2 @@
+# This is needed to pass continuous integration if your application
+# utilizes it.
