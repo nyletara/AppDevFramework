@@ -8,6 +8,6 @@ Each architecture structure is separated into its own subfolder and is set up to
 * Built using the <b>Python Flask</b> web framework
 * Set up with files for continuous integration with <b>Travis CI</b>
 
-Take a look at our wiki!(https://github.com/nyletara/AppDevFramework/wiki/Application-Development-Framework)
+[Take a look at our wiki!](https://github.com/nyletara/AppDevFramework/wiki/Application-Development-Framework)
 
 
